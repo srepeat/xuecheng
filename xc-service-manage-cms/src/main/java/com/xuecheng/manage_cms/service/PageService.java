@@ -2,7 +2,9 @@ package com.xuecheng.manage_cms.service;
 
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
+import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.exception.ExceptionCast;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
@@ -86,7 +88,7 @@ public class PageService {
         return responseResult;
     }
 
-    //新增页面
+    /*//新增页面
     public CmsPageResult add(CmsPage cmsPage) {
         //1、校验是否有重复添加
         CmsPage cmsPage1 = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
@@ -101,6 +103,32 @@ public class PageService {
         }
         //操作失败
         return new CmsPageResult(CommonCode.FAIL,null);
+    }*/
+
+    //新增页面
+    public CmsPageResult add(CmsPage cmsPage) {
+        //判断cms是否为空
+        if(cmsPage == null){
+            //抛出异常，非法请求
+        }
+
+        //1、校验是否有重复添加
+        CmsPage cmsPage1 = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
+        //2、进行判断不能为空
+        if(cmsPage1 != null){
+
+            ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTSNAME);
+        }
+
+
+        //防止被注入主键id，我们设置id为null
+        cmsPage.setPageId(null);
+            //3、保存数据
+        cmsPageRepository.save(cmsPage);
+        //返回操作结果代码
+
+        //操作失败
+        return new CmsPageResult(CommonCode.SUCCESS,cmsPage);
     }
 
     //根据id查询页面

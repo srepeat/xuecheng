@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @ToString
 public enum CommonCode implements ResultCode{
-
+    INVALID_PARAM(false,10003,"非法参数！"),
     SUCCESS(true,10000,"操作成功！"),
     FAIL(false,11111,"操作失败！"),
     UNAUTHENTICATED(false,10001,"此操作需要登陆系统！"),
