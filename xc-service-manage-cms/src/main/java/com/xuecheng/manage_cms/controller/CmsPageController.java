@@ -23,7 +23,7 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @Override
     @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(@PathVariable("page") int page,@PathVariable("size") int size, QueryPageRequest queryPageRequest) {
+    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
         /*//封装结果集
         QueryResult queryResult = new QueryResult();
         //设置总页数
@@ -39,7 +39,7 @@ public class CmsPageController implements CmsPageControllerApi {
 
         //构造函数传递CommonCode.SUCCESS状态码 结果集
         QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);*/
-        return pageService.findList(page,size,queryPageRequest);
+        return pageService.findList(page, size, queryPageRequest);
     }
 
     @Override
@@ -59,8 +59,8 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     //更新,将对象转换为json格式
     @PutMapping("/edit/{id}")
-    public CmsPageResult edit(@PathVariable("id") String id,@RequestBody CmsPage cmsPage) {
-        return pageService.edit(id,cmsPage);
+    public CmsPageResult edit(@PathVariable("id") String id, @RequestBody CmsPage cmsPage) {
+        return pageService.edit(id, cmsPage);
     }
 
     @Override
@@ -69,4 +69,5 @@ public class CmsPageController implements CmsPageControllerApi {
     public ResponseResult delete(@PathVariable("id") String id) {
         return pageService.delete(id);
     }
+
 }

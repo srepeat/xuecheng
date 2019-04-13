@@ -5,6 +5,7 @@ import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
 import com.xuecheng.framework.exception.ExceptionCast;
+import com.xuecheng.framework.exception.ExceptionCatch;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -48,19 +50,32 @@ public class PageService {
 
             cmsPage.setSiteId(queryPageRequest.getSiteId());
         }
-
+        //模板
         if(StringUtils.isNotEmpty(queryPageRequest.getTemplateId())){
-           cmsPage.setTemplateId(queryPageRequest.getTemplateId());
-        }
 
+            cmsPage.setTemplateId(queryPageRequest.getTemplateId());
+        }
+        //别名
         if(StringUtils.isNotEmpty(queryPageRequest.getPageAliase())){
+
             cmsPage.setPageAliase(queryPageRequest.getPageAliase());
+        }
+        //页面名称
+        if(StringUtils.isNotEmpty(queryPageRequest.getPageName())){
+
+            cmsPage.setPageName(queryPageRequest.getPageName());
+        }
+        //页面类型
+        if(StringUtils.isNotEmpty(queryPageRequest.getPageType())){
+
+            cmsPage.setPageType(queryPageRequest.getPageType());
         }
 
         //条件匹配器
         ExampleMatcher exampleMatcher = ExampleMatcher.matching();
         //页面别名，绑定字段进行模糊查询
         exampleMatcher = exampleMatcher.withMatcher("pageAliase",ExampleMatcher.GenericPropertyMatchers.contains());
+        exampleMatcher = exampleMatcher.withMatcher("pageName",ExampleMatcher.GenericPropertyMatchers.contains());
         //条件实例
         Example<CmsPage> example = Example.of(cmsPage,exampleMatcher);
 
@@ -110,16 +125,16 @@ public class PageService {
         //判断cms是否为空
         if(cmsPage == null){
             //抛出异常，非法请求
+//            ExceptionCast.cast(CommonCode.SERVER_ERROR);
         }
 
         //1、校验是否有重复添加
         CmsPage cmsPage1 = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
         //2、进行判断不能为空
         if(cmsPage1 != null){
-
+            //抛出可预知异常
             ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTSNAME);
         }
-
 
         //防止被注入主键id，我们设置id为null
         cmsPage.setPageId(null);
@@ -160,6 +175,8 @@ public class PageService {
             one.setPageWebPath(cmsPage.getPageWebPath());
             //更新物理路径
             one.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
+            //更行url信息
+            one.setDataUrl(cmsPage.getDataUrl());
             //执行更新
             cmsPageRepository.save(one);
             //更新成功
@@ -185,6 +202,5 @@ public class PageService {
         //失败结果
         return new ResponseResult(CommonCode.FAIL);
     }
-
 
 }

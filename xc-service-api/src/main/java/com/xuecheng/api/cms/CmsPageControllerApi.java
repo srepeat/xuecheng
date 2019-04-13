@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value = "Cms管理接口",description = "Cms页面管理接口，提供增、删、改、查")
 public interface CmsPageControllerApi {
-    //分页查询
+    //分页查询+模糊查询
     @ApiOperation("分页查询列表")
     public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest);
 
