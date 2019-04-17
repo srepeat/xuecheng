@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="testfreemarker" />
+        <module name="test‐freemarker" />
         <module name="xc-framework-common" />
         <module name="xc-framework-model" />
         <module name="xc-framework-utils" />
@@ -16,6 +18,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="testfreemarker" target="1.8" />
+      <module name="test‐freemarker" target="1.8" />
       <module name="xc-framework-common" target="1.8" />
       <module name="xc-framework-model" target="1.8" />
       <module name="xc-framework-parent" target="1.8" />
