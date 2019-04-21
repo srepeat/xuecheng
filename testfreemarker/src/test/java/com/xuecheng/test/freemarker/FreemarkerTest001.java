@@ -21,7 +21,7 @@ import java.util.*;
  **/
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class FreemarkerTest01 {
+public class FreemarkerTest001 {
 
 
     /***
@@ -35,7 +35,7 @@ public class FreemarkerTest01 {
      */
 
     @Test
-    public void testGenerateHtml01() throws Exception{
+    public void testGenerateHtml() throws Exception{
         //创建配置类
         Configuration configuration = new Configuration(Configuration.getVersion());
         //得到class path路径

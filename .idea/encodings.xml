@@ -2,9 +2,10 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://D:/BaiduNetdiskDownload/3.学成在线微服务项目实战/day01 搭建环境 CMS服务端开发/代码/xcEduService01/xc-service-manage-cms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-rabbitmq-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-rabbitmq-producer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/testfreemarker" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/testfreemarker" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/test‐freemarker" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testrabbitmqconsumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xc-framework-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xc-framework-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xc-framework-parent" charset="UTF-8" />
