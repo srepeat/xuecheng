@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import rabbitmq.config.RabbitmqConfig;
 
 /**
+ * 组件，交与spring管理
  * @author 鲜磊 on 2019/4/21
  **/
 @Component

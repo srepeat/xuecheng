@@ -9,12 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
+ * springBoot整合rabbitMQ
  * @author 鲜磊 on 2019/4/21
  **/
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class Producer05_topics_springboot {
 
+    //注入rabbitMq模板
     @Autowired
     RabbitTemplate rabbitTemplate;
 

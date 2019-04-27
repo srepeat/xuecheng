@@ -70,4 +70,11 @@ public class CmsPageController implements CmsPageControllerApi {
         return pageService.delete(id);
     }
 
+    @Override
+    //发送页面，调用MQ
+    @PostMapping("/postPage/{pageId}")
+    public ResponseResult post(@PathVariable("pageId") String pageId) {
+        return pageService.postPage(pageId);
+    }
+
 }

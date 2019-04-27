@@ -35,5 +35,7 @@ public class CmsSite {
     private String siteWebPath;
     //创建时间
     private Date siteCreateTime;
+    //物理路径
+    private String sitePhysicalPath;
 
 }
