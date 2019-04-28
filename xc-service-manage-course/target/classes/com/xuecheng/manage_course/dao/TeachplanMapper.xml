@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xuecheng.manage_course.dao.TeachplanMapper">
+
+   <!--type返回方法所传递的数据类型-->
+   <resultMap id="teachplanMap" type="com.xuecheng.framework.domain.course.ext.TeachplanNode">
+      <!--主键id 属性-->
+      <id column="one_id" property="id"></id>
+      <result column="one_pname" property="pname"></result>
+      <!--关联下一个-->
+      <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.TeachplanNode">
+      <id column="two_id" property="id"></id>
+      <result column="two_pname" property="pname"></result>
+         <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.TeachplanNode">
+            <id column="three_id" property="id"></id>
+            <result column="three_pname" property="pname"></result>
+          </collection>
+      </collection>
+   </resultMap>
+
+   <!--查询节点sql-->
+    <select id="selectList" parameterType="java.lang.String" resultMap="teachplanMap">
+        SELECT
+        a.id    AS one_id,
+        a.pname AS one_pname,
+        b.id    AS two_id,
+        b.pname AS two_pname,
+        c.id    AS three_id,
+        c.pname AS three_pname
+      FROM teachplan a
+        LEFT JOIN teachplan b
+          ON a.id = b.parentid
+        LEFT JOIN teachplan c
+          ON b.id = c.parentid
+      WHERE a.parentid = '0'
+        <if test="_parameter != null and _parameter != ''">
+         AND a.courseid = #{courseId}
+        </if>
+      ORDER BY a.orderby,b.orderby,c.orderby
+    </select>
+</mapper>
