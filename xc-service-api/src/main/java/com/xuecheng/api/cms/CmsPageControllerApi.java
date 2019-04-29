@@ -3,6 +3,7 @@ package com.xuecheng.api.cms;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
@@ -16,7 +17,7 @@ import io.swagger.annotations.ApiOperation;
 public interface CmsPageControllerApi {
     //分页查询+模糊查询
     @ApiOperation("分页查询列表")
-    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest);
+    public QueryResponseResult<CourseBase> findList(int page, int size, QueryPageRequest queryPageRequest);
 
     //新增页面
     @ApiOperation("新增页面")

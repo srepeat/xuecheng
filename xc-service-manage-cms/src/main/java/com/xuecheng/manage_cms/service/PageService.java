@@ -4,20 +4,18 @@ import com.alibaba.fastjson.JSON;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
-import com.xuecheng.framework.domain.cms.CmsConfig;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.CmsTemplate;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.exception.ExceptionCast;
-import com.xuecheng.framework.exception.ExceptionCatch;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.conﬁg.RabbitmqConfig;
-import com.xuecheng.manage_cms.dao.CmsConfigRepository;
 import com.xuecheng.manage_cms.dao.CmsPageRepository;
 import com.xuecheng.manage_cms.dao.cmsTemplateRepository;
 import freemarker.cache.StringTemplateLoader;
@@ -26,7 +24,6 @@ import freemarker.template.Template;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
-import org.mockito.internal.util.StringUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -42,7 +39,6 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -79,7 +75,7 @@ public class PageService {
      * @param queryPageRequest 查询条件
      * @return
      */
-    public QueryResponseResult findList(int page,int size, QueryPageRequest queryPageRequest){
+    public QueryResponseResult<CourseBase> findList(int page, int size, QueryPageRequest queryPageRequest){
         //自定义条件查询
         //如果queryPageRequest等于null，就创建一个新的
         if(queryPageRequest == null){
@@ -140,7 +136,7 @@ public class PageService {
         QueryResult queryResult = new QueryResult();
         queryResult.setList(pages.getContent()); //页码数
         queryResult.setTotal(pages.getTotalElements()); //分页数
-        QueryResponseResult responseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
+        QueryResponseResult<CourseBase> responseResult = new QueryResponseResult<CourseBase>(CommonCode.SUCCESS,queryResult);
 
         return responseResult;
     }
