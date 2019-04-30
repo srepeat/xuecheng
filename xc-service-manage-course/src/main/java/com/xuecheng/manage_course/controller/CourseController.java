@@ -9,9 +9,11 @@ import com.xuecheng.framework.domain.course.request.CourseListRequest;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
+import com.xuecheng.manage_course.service.CategoryService;
 import com.xuecheng.manage_course.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.java2d.loops.XORComposite;
 
 /**
  * 课程管理
@@ -23,6 +25,7 @@ public class CourseController implements CourseControllerApi{
 
     @Autowired
     private CourseService courseService;
+
 
     @Override
     @GetMapping("/teachplan/list/{courseId}")
@@ -37,13 +40,9 @@ public class CourseController implements CourseControllerApi{
     }
 
     @Override
-    public QueryResult<CourseInfo> findCourseList(int page, int size, CourseListRequest courseListRequest) {
-        return null;
-    }
-
-    @Override
-    public CategoryNode findList() {
-        return null;
+    @GetMapping("/coursebase/list/{page}/{size}")
+    public QueryResponseResult findCourseList(@PathVariable("page") int page,@PathVariable("size") int size, CourseListRequest courseListRequest) {
+        return courseService.findCourseList(page,size,courseListRequest);
     }
 
 }

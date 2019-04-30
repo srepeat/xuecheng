@@ -1,16 +1,24 @@
 package com.xuecheng.manage_course.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
+import com.xuecheng.framework.domain.course.request.CourseListRequest;
 import com.xuecheng.framework.exception.ExceptionCast;
 import com.xuecheng.framework.model.response.CommonCode;
+import com.xuecheng.framework.model.response.QueryResponseResult;
+import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_course.dao.CourseBaseRepository;
+import com.xuecheng.manage_course.dao.CourseMapper;
 import com.xuecheng.manage_course.dao.TeachplanMapper;
 import com.xuecheng.manage_course.dao.TeachplanRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +34,9 @@ public class CourseService {
 
     @Autowired
     private TeachplanMapper teachplanMapper;
+
+    @Autowired
+    private CourseMapper courseMapper;
 
     @Autowired
     private TeachplanRepository teachplanRepository;
@@ -115,6 +126,39 @@ public class CourseService {
         //返回节点id
         return teachplan.getId();
 
+    }
+
+
+
+    //课程分页查询
+    public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest) {
+        if(courseListRequest == null){
+            //创建一个新的
+            courseListRequest = new CourseListRequest();
+        }
+
+        //判断参数
+        if(page <=0){
+            page = 0;
+        }
+
+        if(size <=0){
+            size = 20;
+        }
+
+        //设置分页参数
+        PageHelper.startPage(page,size);
+        //分页查询
+        List<CourseInfo> courseListPage = courseMapper.findCourseListPage(courseListRequest);
+        PageInfo pageInfo = new PageInfo(courseListPage);
+        //总记录数
+        long total = pageInfo.getTotal();
+        //封装结果集
+        QueryResult<CourseInfo> queryResult = new QueryResult<>();
+        queryResult.setList(pageInfo.getList());
+        queryResult.setTotal(total);
+        //返回结果集
+        return new QueryResponseResult(CommonCode.SUCCESS, queryResult);
     }
 
 }

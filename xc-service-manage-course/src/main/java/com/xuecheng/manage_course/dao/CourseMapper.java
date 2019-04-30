@@ -19,7 +19,8 @@ public interface CourseMapper {
    @Select("select * from course_base where id=#{id}")
    CourseBase findCourseBaseById(String id);
 
-   Page<CourseInfo> findCourseListPage(CourseListRequest courseListRequest);
+   //分页查询
+   List<CourseInfo> findCourseListPage(CourseListRequest courseListRequest);
 
    //@Select("select * from course_base")
    List<CourseBase> findCourseList();

@@ -75,7 +75,7 @@ public class PageService {
      * @param queryPageRequest 查询条件
      * @return
      */
-    public QueryResponseResult<CourseBase> findList(int page, int size, QueryPageRequest queryPageRequest){
+    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest){
         //自定义条件查询
         //如果queryPageRequest等于null，就创建一个新的
         if(queryPageRequest == null){
@@ -136,7 +136,7 @@ public class PageService {
         QueryResult queryResult = new QueryResult();
         queryResult.setList(pages.getContent()); //页码数
         queryResult.setTotal(pages.getTotalElements()); //分页数
-        QueryResponseResult<CourseBase> responseResult = new QueryResponseResult<CourseBase>(CommonCode.SUCCESS,queryResult);
+        QueryResponseResult responseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
 
         return responseResult;
     }

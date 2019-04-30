@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xuecheng.manage_course.dao.CategoryMapper">
+
+   <!--自定义封装-->
+   <resultMap id="categoryMap" type="com.xuecheng.framework.domain.course.ext.CategoryNode">
+      <id column="id" property="one_id"></id>
+      <result column="name" property="one_name"></result>
+      <result column="label" property="one_label"></result>
+      <result column="isleaf" property="one_isleaf"></result>
+      <result column="isshow" property="one_isshow"></result>
+      <result column="orderby" property="one_orderby"></result>
+      <result column="parentid" property="one_parentid"></result>
+      <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
+         <id column="id" property="two_id"></id>
+         <result column="name" property="two_name"></result>
+         <result column="label" property="two_label"></result>
+         <result column="isleaf" property="two_isleaf"></result>
+         <result column="isshow" property="two_isshow"></result>
+         <result column="orderby" property="two_orderby"></result>
+         <result column="parentid" property="two_parentid"></result>
+         <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
+            <id column="id" property="three_id"></id>
+            <result column="name" property="three_name"></result>
+            <result column="label" property="three_label"></result>
+            <result column="isleaf" property="three_isleaf"></result>
+            <result column="isshow" property="three_isshow"></result>
+            <result column="orderby" property="three_orderby"></result>
+            <result column="parentid" property="three_parentid"></result>
+         </collection>
+      </collection>
+   </resultMap>
+   <!--public CategoryNode selectList();-->
+   <select id="selectList" resultMap="categoryMap">
+      SELECT
+      a.id       AS one_id,
+      a.name     AS one_name,
+      a.label    AS one_label,
+      a.isleaf   AS one_isleaf,
+      a.isshow   AS one_isshow,
+      a.orderby AS one_orderby,
+      a.parentid AS one_parentid,
+      b.id       AS two_id,
+      b.name     AS two_name,
+      b.label    AS two_label,
+      b.isleaf   AS two_isleaf,
+      b.isshow   AS two_isshow,
+      b.orderby AS two_orderby,
+      b.parentid AS two_parentid,
+      c.id       AS three_id,
+      c.name     AS three_name,
+      c.label    AS three_label,
+      c.isleaf   AS three_isleaf,
+      c.isshow   AS three_isshow,
+      c.orderby AS three_orderby,
+      c.parentid AS three_parentid
+
+      FROM category a
+      LEFT JOIN category b
+      ON a.id = b.parentid
+      LEFT JOIN category c
+      ON b.id = c.parentid
+      WHERE a.parentid = '0'
+      ORDER BY a.orderby,b.orderby,c.orderby
+   </select>
+
+
+</mapper>

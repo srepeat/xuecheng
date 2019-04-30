@@ -31,7 +31,6 @@ public class ResponseResult implements Response {
     }
 
     public static ResponseResult SUCCESS(){
-
         return new ResponseResult(CommonCode.SUCCESS);
     }
     public static ResponseResult FAIL(){

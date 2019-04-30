@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiOperation;
 public interface CmsPageControllerApi {
     //分页查询+模糊查询
     @ApiOperation("分页查询列表")
-    public QueryResponseResult<CourseBase> findList(int page, int size, QueryPageRequest queryPageRequest);
+    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest);
 
     //新增页面
     @ApiOperation("新增页面")

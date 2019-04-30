@@ -26,8 +26,6 @@ public interface CourseControllerApi {
     public ResponseResult addTeachplan(Teachplan teachplan);
 
     //@ApiOperation("查询我的课程列表")
-    public QueryResult<CourseInfo> findCourseList(int page, int size, CourseListRequest courseListRequest);
+    public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest);
 
-    @ApiOperation("分类查询")
-    public CategoryNode findList();
 }

@@ -3,6 +3,7 @@ package com.xuecheng.manage_course.dao;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xuecheng.framework.domain.course.CourseBase;
+import com.xuecheng.framework.domain.course.ext.CategoryNode;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
@@ -32,6 +33,10 @@ public class TestDao {
 
     @Autowired
     private TeachplanMapper teachplanMapper;
+
+    @Autowired
+    private CategoryMapper categoryMapper;
+
     @Test
     public void testCourseBaseRepository(){
         Optional<CourseBase> optional = courseBaseRepository.findById("402885816240d276016240f7e5000002");
@@ -54,20 +59,28 @@ public class TestDao {
         System.out.println(teachplanNode);
     }
 
+    //测试分页
     @Test
     public void testPageHelper(){
 
         PageHelper.startPage(1,10);
 
-       /* List<CourseBase> courseList = courseMapper.findCourseList();
+        List<CourseBase> courseList = courseMapper.findCourseList();
         PageInfo pageInfo = new PageInfo(courseList);
         pageInfo.getPages();
         pageInfo.getTotal();
-        System.out.println(pageInfo);*/
+        System.out.println(pageInfo);
 
-        CourseListRequest courseListRequest = new CourseListRequest();
-        Page<CourseInfo> courseListPage = courseMapper.findCourseListPage(courseListRequest);
-
-        
+//        CourseListRequest courseListRequest = new CourseListRequest();
+//        Page<CourseInfo> courseListPage = courseMapper.findCourseListPage(courseListRequest);
     }
+
+    //测试课程分类
+    @Test
+    public void testCategor(){
+        CategoryNode categoryNode = categoryMapper.selectList();
+        //System.out.println(categoryNode);
+    }
+
+
 }
