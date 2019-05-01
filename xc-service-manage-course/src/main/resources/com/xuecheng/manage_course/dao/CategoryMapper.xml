@@ -4,29 +4,29 @@
 
    <!--自定义封装-->
    <resultMap id="categoryMap" type="com.xuecheng.framework.domain.course.ext.CategoryNode">
-      <id column="id" property="one_id"></id>
-      <result column="name" property="one_name"></result>
-      <result column="label" property="one_label"></result>
-      <result column="isleaf" property="one_isleaf"></result>
-      <result column="isshow" property="one_isshow"></result>
-      <result column="orderby" property="one_orderby"></result>
-      <result column="parentid" property="one_parentid"></result>
+      <id column="one_id" property="id"></id>
+      <result column="one_name" property="name"></result>
+      <result column="one_label" property="label"></result>
+      <result column="one_isleaf" property="isleaf"></result>
+      <result column="one_isshow" property="isshow"></result>
+      <result column="one_orderby" property="orderby"></result>
+      <result column="one_parentid" property="parentid"></result>
       <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
-         <id column="id" property="two_id"></id>
-         <result column="name" property="two_name"></result>
-         <result column="label" property="two_label"></result>
-         <result column="isleaf" property="two_isleaf"></result>
-         <result column="isshow" property="two_isshow"></result>
-         <result column="orderby" property="two_orderby"></result>
-         <result column="parentid" property="two_parentid"></result>
+         <id column="two_id" property="id"></id>
+         <result column="two_name" property="name"></result>
+         <result column="two_label" property="label"></result>
+         <result column="two_isleaf" property="isleaf"></result>
+         <result column="two_isshow" property="isshow"></result>
+         <result column="two_orderby" property="orderby"></result>
+         <result column="two_parentid" property="parentid"></result>
          <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
-            <id column="id" property="three_id"></id>
-            <result column="name" property="three_name"></result>
-            <result column="label" property="three_label"></result>
-            <result column="isleaf" property="three_isleaf"></result>
-            <result column="isshow" property="three_isshow"></result>
-            <result column="orderby" property="three_orderby"></result>
-            <result column="parentid" property="three_parentid"></result>
+            <id column="three_id" property="id"></id>
+            <result column="three_name" property="name"></result>
+            <result column="three_label" property="label"></result>
+            <result column="three_isleaf" property="isleaf"></result>
+            <result column="three_isshow" property="isshow"></result>
+            <result column="three_orderby" property="orderby"></result>
+            <result column="three_parentid" property="parentid"></result>
          </collection>
       </collection>
    </resultMap>

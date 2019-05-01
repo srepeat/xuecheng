@@ -79,7 +79,7 @@ public class TestDao {
     @Test
     public void testCategor(){
         CategoryNode categoryNode = categoryMapper.selectList();
-        //System.out.println(categoryNode);
+        System.out.println(categoryNode);
     }
 
 

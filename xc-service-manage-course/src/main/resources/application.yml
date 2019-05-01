@@ -19,3 +19,6 @@ spring:
       minEvictableIdleTimeMillis: 300000  #连接在连接池的最小生存时间（毫秒）
 pagehelper:
   helper-dialect: mysql
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
