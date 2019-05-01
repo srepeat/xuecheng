@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xuecheng.manage_course.dao.CategoryMapper">
 
-   <!--自定义封装-->
+   <!--自定义封装 column->数据库绑定字段  property->实体对应的关系  -->
    <resultMap id="categoryMap" type="com.xuecheng.framework.domain.course.ext.CategoryNode">
       <id column="one_id" property="id"></id>
       <result column="one_name" property="name"></result>
@@ -54,7 +54,6 @@
       c.isshow   AS three_isshow,
       c.orderby AS three_orderby,
       c.parentid AS three_parentid
-
       FROM category a
       LEFT JOIN category b
       ON a.id = b.parentid

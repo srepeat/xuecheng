@@ -7,6 +7,7 @@ import com.xuecheng.framework.domain.course.ext.CategoryNode;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
+import com.xuecheng.framework.domain.system.SysDictionary;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,7 @@ public class TestDao {
         CategoryNode categoryNode = categoryMapper.selectList();
         System.out.println(categoryNode);
     }
+
 
 
 }
