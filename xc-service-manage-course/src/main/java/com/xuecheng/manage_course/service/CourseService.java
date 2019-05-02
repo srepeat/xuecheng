@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CourseMarket;
+import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
@@ -47,6 +48,9 @@ public class CourseService {
 
     @Autowired
     private CourseMarketRepository CourseMarketRepository;
+
+    @Autowired
+    private CoursePicRepository coursePicRepository;
 
 
     //课程计划
@@ -244,5 +248,46 @@ public class CourseService {
 
     }
 
+    //保存图片到数据库中
+    @Transactional
+    public ResponseResult addCoursePic(String courseId, String pic) {
+        CoursePic coursePic = null;
+        Optional<CoursePic> optional = coursePicRepository.findById(courseId);
+        //查询是否存在
+        if(optional.isPresent()){
+            coursePic = optional.get();
+        }
 
+        if(coursePic == null){
+            coursePic = new CoursePic();
+        }
+        //保存数据库中字段
+        coursePic.setCourseid(courseId);
+        coursePic.setPic(pic);
+        coursePicRepository.save(coursePic);
+        //返回结果集
+        return new ResponseResult(CommonCode.SUCCESS);
+
+    }
+
+    //查询图片
+    public CoursePic findCoursePic(String courseId) {
+        Optional<CoursePic> optional = coursePicRepository.findById(courseId);
+        if(optional.isPresent()){
+            CoursePic coursePic = optional.get();
+            return coursePic;
+        }
+        return null;
+    }
+
+    //删除图片
+    @Transactional
+    public ResponseResult deleteCoursePic(String courseId) {
+        long result = coursePicRepository.deleteByCourseid(courseId);
+        //判断如果结果集返回大于0表示删除一条 1表示删除，0表示删除失败
+        if(result >0 ){
+            return new ResponseResult(CommonCode.SUCCESS);
+        }
+        return new ResponseResult(CommonCode.FAIL);
+    }
 }

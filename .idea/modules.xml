@@ -5,11 +5,13 @@
       <module fileurl="file://$PROJECT_DIR$/test-rabbitmq-consumer/test-rabbitmq-consumer.iml" filepath="$PROJECT_DIR$/test-rabbitmq-consumer/test-rabbitmq-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-rabbitmq-producer/test-rabbitmq-producer.iml" filepath="$PROJECT_DIR$/test-rabbitmq-producer/test-rabbitmq-producer.iml" />
       <module fileurl="file://$PROJECT_DIR$/testfreemarker/testfreemarker.iml" filepath="$PROJECT_DIR$/testfreemarker/testfreemarker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test‐fastDSF/test‐fastDSF.iml" filepath="$PROJECT_DIR$/test‐fastDSF/test‐fastDSF.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-framework-common/xc-framework-common.iml" filepath="$PROJECT_DIR$/xc-framework-common/xc-framework-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-framework-model/xc-framework-model.iml" filepath="$PROJECT_DIR$/xc-framework-model/xc-framework-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-framework-parent/xc-framework-parent.iml" filepath="$PROJECT_DIR$/xc-framework-parent/xc-framework-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-framework-utils/xc-framework-utils.iml" filepath="$PROJECT_DIR$/xc-framework-utils/xc-framework-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-service-api/xc-service-api.iml" filepath="$PROJECT_DIR$/xc-service-api/xc-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xc-service-base-filesystem/xc-service-base-filesystem.iml" filepath="$PROJECT_DIR$/xc-service-base-filesystem/xc-service-base-filesystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-service-manage-cms/xc-service-manage-cms.iml" filepath="$PROJECT_DIR$/xc-service-manage-cms/xc-service-manage-cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/xc-service-manage-course/xc-service-manage-course.iml" filepath="$PROJECT_DIR$/xc-service-manage-course/xc-service-manage-course.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/xcEduSerrvice.iml" filepath="$PROJECT_DIR$/.idea/xcEduSerrvice.iml" />
