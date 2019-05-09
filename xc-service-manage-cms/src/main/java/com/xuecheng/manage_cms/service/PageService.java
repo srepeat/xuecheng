@@ -441,4 +441,26 @@ public class PageService {
     }
 
 
+    //判断页面是否存在，存在就更新，不存在就新增
+    public CmsPageResult save(CmsPage cmsPage) {
+        //判断页面是否存在
+        String pageName = cmsPage.getPageName();
+        String siteId = cmsPage.getSiteId();
+        String pageWebPath = cmsPage.getPageWebPath();
+        //查询
+        CmsPage idAndPageWebPath = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(pageName, siteId, pageWebPath);
+        //存在就添加
+        if(idAndPageWebPath != null){
+            //页面ID
+            String pageId = idAndPageWebPath.getPageId();
+            return this.edit(pageId,cmsPage);
+        }
+
+        //不存在就更新
+        return this.add(cmsPage);
+    }
+
+
+
+
 }

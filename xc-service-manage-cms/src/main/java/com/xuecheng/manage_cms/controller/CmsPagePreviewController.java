@@ -27,6 +27,8 @@ public class CmsPagePreviewController extends BaseController {
         try {
             //使用servlet输入流将输出到页面响应写到浏览器
             ServletOutputStream servletOutputStream = response.getOutputStream();
+            //设置请求头--ssi解析时自动解析为HTML
+            response.setHeader("Content-type","text/html;charset=utf‐8");
             //写到浏览器
             servletOutputStream.write(pageHtml.getBytes("utf-8"));
 
@@ -34,8 +36,6 @@ public class CmsPagePreviewController extends BaseController {
             e.printStackTrace();
         }
 
-
     }
-
 
 }

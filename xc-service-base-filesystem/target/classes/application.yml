@@ -24,7 +24,7 @@ spring:
 #fastDFS文件系统
 xuecheng:
   fastdfs:
-    connect_timeout_in_seconds: 5
-    network_timeout_in_seconds: 30
-    charset: UTF-8
+    connect_timeout_in_seconds: 5 #连接超时时间
+    network_timeout_in_seconds: 30 #网络超时时间
+    charset: UTF-8 #字符编码
     tracker_servers: 192.168.25.133:22122 #多个 trackerServer中间以逗号分隔

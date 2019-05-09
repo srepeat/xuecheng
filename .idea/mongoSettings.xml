@@ -126,6 +126,35 @@
           <option name="userDatabase" value="xc_cms" />
           <option name="username" value="root" />
         </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="password" value="123" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="xc_cms" />
+          <option name="username" value="root" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="11" />
+          <option name="password" value="123" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="xc_cms" />
+          <option name="username" value="root" />
+        </ServerConfiguration>
       </list>
     </option>
     <option name="shellPath" value="C:\MongoDB\Server\3.4\bin\mongo.exe" />
