@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CourseMarket;
 import com.xuecheng.framework.domain.course.CoursePic;
@@ -396,5 +397,63 @@ public class CourseService {
         //没有就抛出异常
         ExceptionCast.cast(CourseCode.COURSE_GET_NOTEXISTS);
         return null;
+    }
+
+    //课程发布
+    @Transactional
+    public CoursePublishResult publish(String courseId) {
+        //先查询课程ID
+        CourseBase courseBase = this.findCourseBaseById(courseId);
+
+        //查询cmsPage
+        CmsPage cmsPage = new CmsPage();
+        //设置属性
+        cmsPage.setSiteId(publish_siteId);//siteId
+        //模板
+        cmsPage.setTemplateId(publish_templateId);
+        //页面名称
+        cmsPage.setPageName(courseId+".html");
+        //页面别名
+        cmsPage.setPageAliase(courseBase.getName());
+        //页面访问路径
+        cmsPage.setPageWebPath(publish_page_webpath);
+        //页面存储路径
+        cmsPage.setPagePhysicalPath(publish_page_physicalpath);
+        //数据Url
+        cmsPage.setDataUrl(publish_dataUrlPre+courseId);
+        //课程发布页面
+        CmsPostPageResult cmsPostPageResult = cmsPageClient.postPageQuick(cmsPage);
+        //判断页面是否存在
+        if(!cmsPostPageResult.isSuccess()){
+            return new CoursePublishResult(CommonCode.FAIL,null);
+        }
+
+        //更改课程状态
+        CourseBase courseBase1 = this.saveCoursePubState(courseId);
+        if(courseBase1 == null){
+            return new CoursePublishResult(CommonCode.FAIL,null);
+        }
+
+        //课程索性...
+
+        //课程缓存...
+
+        //课程Url
+
+        String pageUrl = cmsPostPageResult.getPageUrl();
+
+        return new CoursePublishResult(CommonCode.SUCCESS,pageUrl);
+
+    }
+
+    //更改课程状态
+    private CourseBase saveCoursePubState(String courseId){
+        CourseBase courseBaseById = this.findCourseBaseById(courseId);
+        //更改状态202002
+        courseBaseById.setStatus("202002");
+        //保存状态
+        courseBaseRepository.save(courseBaseById);
+
+        return courseBaseById;
     }
 }

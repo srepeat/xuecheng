@@ -5,10 +5,12 @@ import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.xuecheng.framework.domain.cms.CmsPage;
+import com.xuecheng.framework.domain.cms.CmsSite;
 import com.xuecheng.framework.domain.cms.CmsTemplate;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.exception.ExceptionCast;
 import com.xuecheng.framework.model.response.CommonCode;
@@ -17,6 +19,7 @@ import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.conﬁg.RabbitmqConfig;
 import com.xuecheng.manage_cms.dao.CmsPageRepository;
+import com.xuecheng.manage_cms.dao.CmsSiteRepository;
 import com.xuecheng.manage_cms.dao.cmsTemplateRepository;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
@@ -67,6 +70,9 @@ public class PageService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    @Autowired
+    private CmsSiteRepository cmsSiteRepository;
 
     /**
      * 分页查询
@@ -461,6 +467,53 @@ public class PageService {
     }
 
 
+    //一件发布
+    public CmsPostPageResult postPageQuick(CmsPage cmsPage) {
+        //保存，是否存在
+        CmsPageResult pageResult = this.save(cmsPage);
+        if(!pageResult.isSuccess()){
+            ExceptionCast.cast(CommonCode.FAIL);
+        }
 
+        //获取页面ID
+        CmsPage cmsPage1 = pageResult.getCmsPage();
+        String pageId = cmsPage1.getPageId();
+
+        //发布页面
+        ResponseResult responseResult = this.postPage(pageId);
+        if(!responseResult.isSuccess()){
+           return new CmsPostPageResult(CommonCode.FAIL,null);
+        }
+
+        //获取页面url
+        //站点id
+        String siteId = cmsPage1.getSiteId();
+        //查询站点信息
+        CmsSite cmsSite = this.findCmsSiteById(siteId);
+        //页面Url= cmsSite.siteDomain+cmsSite.siteWebPath+ cmsPage.pageWebPath + cmsPage.pageName
+        String siteDomain = cmsSite.getSiteDomain();
+        //物理路径
+        String siteWebPath = cmsSite.getSiteWebPath();
+        //页面路径
+        String pageWebPath = cmsPage1.getPageWebPath();
+        //页面名称
+        String pageName = cmsPage1.getPageName();
+        //URL信息
+        String Url = siteDomain + siteWebPath + pageWebPath + pageName;
+        //返回结果集
+        return new CmsPostPageResult(CommonCode.SUCCESS,Url);
+
+    }
+
+    //查询站点id是否存在
+    public CmsSite findCmsSiteById(String siteId){
+        Optional<CmsSite> siteOptional = cmsSiteRepository.findById(siteId);
+        if(siteOptional.isPresent()){
+            return siteOptional.get();
+
+        }
+
+        return null;
+    }
 
 }
