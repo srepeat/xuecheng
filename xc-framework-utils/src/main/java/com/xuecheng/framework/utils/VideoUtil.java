@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class VideoUtil {
 
-    String ffmpeg_path = "D:\\Program Files\\ffmpeg-20180227-fa0c9d6-win64-static\\bin\\ffmpeg.exe";//ffmpeg的安装位置
+    String ffmpeg_path = "D:\\developer_xc\\ffmpeg-20180227-fa0c9d6-win64-static\\bin\\ffmpeg.exe";//ffmpeg的安装位置
 
     public VideoUtil(String ffmpeg_path){
         this.ffmpeg_path = ffmpeg_path;

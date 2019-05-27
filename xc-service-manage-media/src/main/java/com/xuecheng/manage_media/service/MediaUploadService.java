@@ -190,10 +190,14 @@ public class MediaUploadService {
         MediaFile mediaFile = new MediaFile();
         mediaFile.setFileId(fileMd5);
         mediaFile.setFileOriginalName(fileName);
-        mediaFile.setFileName(fileName +"."+fileExt);
+        //保存两个扩展名？？
+        //mediaFile.setFileName(fileName +"."+fileExt);
+        mediaFile.setFileName(fileName);
         //文件路径保存相对路径
-        String filePath1 = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/" + fileMd5 + "." +fileExt;
+        String filePath1 = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/";
         mediaFile.setFilePath(filePath1);
+        String filePathUrl = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/" + fileMd5 + "." +fileExt;
+        mediaFile.setFileUrl(filePathUrl);
         mediaFile.setFileSize(fileSize);
         mediaFile.setUploadTime(new Date());
         mediaFile.setMimeType(mimetype);
