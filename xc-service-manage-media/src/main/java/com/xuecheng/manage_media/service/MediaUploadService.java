@@ -1,14 +1,17 @@
 package com.xuecheng.manage_media.service;
 
+import com.alibaba.fastjson.JSON;
 import com.xuecheng.framework.domain.media.MediaFile;
 import com.xuecheng.framework.domain.media.response.CheckChunkResult;
 import com.xuecheng.framework.domain.media.response.MediaCode;
 import com.xuecheng.framework.exception.ExceptionCast;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.ResponseResult;
+import com.xuecheng.manage_media.config.RabbitMQConfig;
 import com.xuecheng.manage_media.dao.MediaFileRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,12 @@ public class MediaUploadService {
 
     @Value("${xc-service-manage-media.upload-location}")
     String upload_location;
+
+    @Value("${xc-service-manage-media.mq.routingkey‐media‐video}")
+    String routingkey_media_video;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
 
     /**
@@ -190,14 +199,13 @@ public class MediaUploadService {
         MediaFile mediaFile = new MediaFile();
         mediaFile.setFileId(fileMd5);
         mediaFile.setFileOriginalName(fileName);
-        //保存两个扩展名？？
-        //mediaFile.setFileName(fileName +"."+fileExt);
-        mediaFile.setFileName(fileName);
+        //保存两个扩展
+        mediaFile.setFileName(fileMd5 + "." +fileExt);
         //文件路径保存相对路径
         String filePath1 = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/";
         mediaFile.setFilePath(filePath1);
-        String filePathUrl = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/" + fileMd5 + "." +fileExt;
-        mediaFile.setFileUrl(filePathUrl);
+       /* String filePathUrl = fileMd5.substring(0,1) + "/" + fileMd5.substring(1,2) + "/" + fileMd5 + "/" + fileMd5 + "." +fileExt;
+        mediaFile.setFileUrl(filePathUrl);*/
         mediaFile.setFileSize(fileSize);
         mediaFile.setUploadTime(new Date());
         mediaFile.setMimeType(mimetype);
@@ -206,6 +214,32 @@ public class MediaUploadService {
         mediaFile.setFileStatus("301002");
         mediaFileRepository.save(mediaFile);
 
+        //向MQ发送消息
+        sendProcessVideoMsg(mediaFile.getFileId());
+
+        return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+    //向Mq发送消息
+    public ResponseResult sendProcessVideoMsg(String mediaId){
+        //先查询数据库
+        Optional<MediaFile> fileOptional = mediaFileRepository.findById(mediaId);
+        if(!fileOptional.isPresent()){
+            ExceptionCast.cast(CommonCode.FAIL);
+        }
+
+        //构建消息内容
+        Map<String,String> msgMap = new HashMap<>();
+        msgMap.put("mediaId",mediaId);
+        //转换格式
+        String jsonString = JSON.toJSONString(msgMap);
+
+        try {
+            rabbitTemplate.convertAndSend(RabbitMQConfig.EX_MEDIA_PROCESSTASK, routingkey_media_video, jsonString);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseResult(CommonCode.FAIL);
+        }
         return new ResponseResult(CommonCode.SUCCESS);
     }
 
