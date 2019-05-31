@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * @author 鲜磊 on 2019/5/18
  **/
@@ -25,5 +27,11 @@ public class EsCourseController implements EsCourseControllerApi{
     @GetMapping("/list/{page}/{size}")
     public QueryResponseResult<CoursePub> list(@PathVariable("page") int page,@PathVariable("size") int size, CourseSearchParam courseSearchParam) {
         return esCourseService.list(page,size,courseSearchParam);
+    }
+
+    @Override
+    @GetMapping("/getall/{id}")
+    public Map<String, CoursePub> getall(@PathVariable("id") String id) {
+        return esCourseService.getall(id);
     }
 }

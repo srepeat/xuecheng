@@ -12,4 +12,5 @@ public interface TeachplanMapper {
 
     //通过id查询树节点
     public TeachplanNode selectList(String courseId);
+
 }
