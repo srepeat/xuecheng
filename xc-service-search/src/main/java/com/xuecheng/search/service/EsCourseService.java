@@ -1,6 +1,7 @@
 package com.xuecheng.search.service;
 
 import com.xuecheng.framework.domain.course.CoursePub;
+import com.xuecheng.framework.domain.course.TeachplanMediaPub;
 import com.xuecheng.framework.domain.search.CourseSearchParam;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
@@ -38,11 +39,20 @@ public class EsCourseService {
     @Value("${xuecheng.course.index}")
     private String index;
 
+    @Value("${xuecheng.media.index}")
+    private String media_index;
+
     @Value("${xuecheng.course.type}")
     private String type;
 
+    @Value("${xuecheng.media.type}")
+    private String media_type;
+
     @Value("${xuecheng.course.source_field}")
     private String source_field;
+
+    @Value("${xuecheng.media.source_field}")
+    private String media_field;
 
     @Autowired
     private RestHighLevelClient client;
@@ -227,7 +237,7 @@ public class EsCourseService {
             SearchHit[] searchHits = hits.getHits();
 
             for(SearchHit hit : searchHits){
-
+                //创建一个对象
                 CoursePub coursePub = new CoursePub();
                 //String courseId = hit.getId();
                 Map<String, Object> sourceAsMap = hit.getSourceAsMap();
@@ -247,6 +257,7 @@ public class EsCourseService {
                 coursePub.setCharge(charge);
                 coursePub.setTeachplan(teachplan);
                 coursePub.setDescription(description);
+                //将课程Id和课程对应返回
                 map.put(courseId,coursePub);
 
             }
@@ -255,8 +266,68 @@ public class EsCourseService {
             e.printStackTrace();
         }
 
-
         return map;
 
+    }
+
+    //根据课程计划查询媒资信息
+    public QueryResponseResult<TeachplanMediaPub> getmedia(String[] teachplanIds) {
+
+        //查询索引库
+        SearchRequest searchRequest = new SearchRequest(media_index);
+        //类型
+        searchRequest.types(media_type);
+
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
+        //查询条件，根据课程计划id查询(可传入多个id)
+        searchSourceBuilder.query(QueryBuilders.termsQuery("teachplan_id",teachplanIds));
+
+        //source过滤字段
+        String[] split = media_field.split(",");
+        searchSourceBuilder.fetchSource(split,new String[]{});
+        //装入源
+        searchRequest.source(searchSourceBuilder);
+        //构建集合列表
+        List<TeachplanMediaPub> teachplanMediaPubList = new ArrayList<>();
+        long total = 0;
+        try {
+            SearchResponse search = client.search(searchRequest);
+            SearchHits searchHits = search.getHits();
+            total =  searchHits.getTotalHits();
+            SearchHit[] hits = searchHits.getHits();
+
+            for(SearchHit hit : hits){
+
+                //创建一个TeachplanMediaPub对象
+                TeachplanMediaPub teachplanMediaPub = new TeachplanMediaPub();
+                //获取源数据
+                Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+                //封装参数
+                String courseid = (String) sourceAsMap.get("courseid");
+                String media_id = (String) sourceAsMap.get("media_id");
+                String media_url = (String) sourceAsMap.get("media_url");
+                String teachplan_id = (String) sourceAsMap.get("teachplan_id");
+                String media_fileoriginalname = (String) sourceAsMap.get("media_fileoriginalname");
+
+                teachplanMediaPub.setCourseId(courseid);
+                teachplanMediaPub.setMediaUrl(media_url);
+                teachplanMediaPub.setMediaFileOriginalName(media_fileoriginalname);
+                teachplanMediaPub.setMediaId(media_id);
+                teachplanMediaPub.setTeachplanId(teachplan_id);
+                //装入list集合中
+                teachplanMediaPubList.add(teachplanMediaPub);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //封装查询结果集
+        QueryResult queryResult = new QueryResult();
+        queryResult.setTotal(total);
+        queryResult.setList(teachplanMediaPubList);
+        //返回结果集
+        return new QueryResponseResult<>(CommonCode.SUCCESS,queryResult);
     }
 }

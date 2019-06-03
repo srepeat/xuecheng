@@ -22,15 +22,18 @@ import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_course.client.CmsPageClient;
 import com.xuecheng.manage_course.dao.*;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Id;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -68,6 +71,9 @@ public class CourseService {
 
     @Autowired
     private TeachplanMediaRepository teachplanMediaRepository;
+
+    @Autowired
+    private TeachplanMediaPubRepository teachplanMediaPubRepository;
 
     //配置文件取属性
     @Value("${course-publish.dataUrlPre}")
@@ -446,8 +452,36 @@ public class CourseService {
         //...
         //得到页面的url
         String pageUrl = cmsPostPageResult.getPageUrl();
+
+        //保存课程计划媒资信息到待索引表
+        saveTeachplanMediaPub(id);
         return new CoursePublishResult(CommonCode.SUCCESS,pageUrl);
     }
+
+    //保存课程计划媒资信息
+    private void saveTeachplanMediaPub(String courseId){
+        //删除课程id
+        teachplanMediaPubRepository.deleteByCourseId(courseId);
+
+        //查询课程列表
+        List<TeachplanMedia> teachplanMediaList = teachplanMediaRepository.findByCourseId(courseId);
+        //讲课程列表TeachplanMedia数据保存到teachplanMediaPub表中
+        List<TeachplanMediaPub> teachplanMediaPubs = new ArrayList<>();
+        //循环遍历
+        for(TeachplanMedia teachplanMedia : teachplanMediaList){
+
+            //创建TeachplanMediaPub对象
+            TeachplanMediaPub teachplanMediaPub = new TeachplanMediaPub();
+
+            BeanUtils.copyProperties(teachplanMedia,teachplanMediaPub);
+            //时间戳
+            teachplanMediaPub.setTimestamp(new Date());
+            teachplanMediaPubs.add(teachplanMediaPub);
+        }
+
+        teachplanMediaPubRepository.saveAll(teachplanMediaPubs);
+    }
+
 
     //将coursePub对象保存到数据库
     private CoursePub saveCoursePub(String id,CoursePub coursePub){
@@ -460,7 +494,6 @@ public class CourseService {
         }else{
             coursePubNew = new CoursePub();
         }
-
         //将coursePub对象中的信息保存到coursePubNew中
         BeanUtils.copyProperties(coursePub,coursePubNew);
         coursePubNew.setId(id);
