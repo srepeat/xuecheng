@@ -1,2 +1,17 @@
 容易学项目
-   springBoot + springCloud + MongoDB
+   整体服务依赖spring搭建
+   
+前后分离：前端使用Vue构建，后端提供接口
+
+静态化技术FreeMarker为支撑，完成对课程详情页面的渲染，自定义模板，使用OkHttp获取模板接口地址
+
+RabbitMQ消息中间件，消费者发送请求，消费者监听请求完成请求消息的调度，课程发布模板文件的下载
+
+文件分布式FastDFS上传课程图片
+
+服务整治使用Sping Clould Eureka Feign完成对其他服务的调度，使用方法定义接口和被调用接口一样就和调用本地方式一样
+
+课程发布使用ElasticSearch 完成对课程的检索 使用了head插件可以查看索引库以及状态，使用logstash爬取信息到数据库中进行一个信息同步，
+
+
+
