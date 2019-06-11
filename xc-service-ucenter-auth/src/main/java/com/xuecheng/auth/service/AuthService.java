@@ -1,17 +1,20 @@
-package com.xuecheng.auth;
+package com.xuecheng.auth.service;
 
+import com.alibaba.fastjson.JSON;
 import com.xuecheng.framework.client.XcServiceList;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.xuecheng.framework.domain.ucenter.ext.AuthToken;
+import com.xuecheng.framework.domain.ucenter.response.AuthCode;
+import com.xuecheng.framework.exception.ExceptionCast;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -21,23 +24,69 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
- * @author 鲜磊 on 2019/6/6
+ * 登录、退出
+ * @author 鲜磊 on 2019/6/11
  **/
-@SpringBootTest
-@RunWith(SpringRunner.class)
-public class TestClient {
+@Service
+public class AuthService {
 
-    //负载均衡
     @Autowired
     LoadBalancerClient loadBalancerClient;
 
     @Autowired
     RestTemplate restTemplate;
-    @Test
-    public void testCreateRedis(){
 
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Value("${auth.tokenValiditySeconds}")
+    int tokenValiditySeconds;
+
+
+    public AuthToken login(String username, String password, String clientId, String clientSecret) {
+        //获取令牌
+        AuthToken authToken = this.applyToken(username, password, clientId, clientSecret);
+        if(authToken == null){
+            ExceptionCast.cast(AuthCode.AUTH_LOGIN_APPLYTOKEN_FAIL);
+        }
+
+        //将Token存入redis
+        String access_token = authToken.getAccess_token();
+        //转为JSON格式
+        String jsonString = JSON.toJSONString(access_token);
+
+        //存储到redis
+        boolean result = this.saveToken(access_token, jsonString, tokenValiditySeconds);
+        //如果redis未开启或者其他原因就抛出异常
+        if(!result){
+            ExceptionCast.cast(AuthCode.AUTH_LOGIN_TOKEN_SAVEFAIL);
+        }
+        //返回对象
+        return authToken;
+    }
+
+    //缓存到redis中
+    private boolean saveToken(String access_token,String content,long ttl){
+        //令牌名称
+        String key = "user_token:" + access_token;
+
+        stringRedisTemplate.boundValueOps(key).set(content,ttl, TimeUnit.SECONDS);
+
+        //获取过期时间
+        Long expire = stringRedisTemplate.getExpire(key);
+
+        //时间大于0表示没有过期
+        return expire>0;
+    }
+
+
+
+    //申请令牌
+    private AuthToken applyToken(String username,String password,String clientId,String
+            clientSecret){
         //采用客户端负载均衡，从eureka获取认证服务的ip 和端口
         ServiceInstance serviceInstance = loadBalancerClient.choose(XcServiceList.XC_SERVICE_UCENTER_AUTH);
         //获取Url主机端口
@@ -53,14 +102,13 @@ public class TestClient {
         //请求头两部分内容
         //1、header信息，包括了http basic认证信息
         LinkedMultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-        String httpbasic = httpbasic("XcWebApp", "XcWebApp");
+        String httpbasic = httpbasic(clientId, clientSecret);
         headers.add("Authorization",httpbasic);
         //2、包括：grant_type、username、password
         LinkedMultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         body.add("grant_type","password");
-        body.add("username","itcast");
-        body.add("password","123");
-
+        body.add("username",username);
+        body.add("password",password);
 
         HttpEntity<MultiValueMap<String, String>> multiValueMapHttpEntity = new HttpEntity<>(body, headers);
 
@@ -78,7 +126,22 @@ public class TestClient {
         ResponseEntity<Map> exchange = restTemplate.exchange(authUrl, HttpMethod.POST, multiValueMapHttpEntity, Map.class);
         //获取参数
         Map exchangeBody = exchange.getBody();
-        System.out.println(exchangeBody);
+
+        if(exchange == null ||
+                exchangeBody.get("access_token") == null||
+                exchangeBody.get("refresh_token") == null||
+                exchangeBody.get("jti") == null){
+
+            ExceptionCast.cast(AuthCode.AUTH_LOGIN_APPLYTOKEN_FAIL);
+
+        }
+
+        AuthToken authToken = new AuthToken();
+        authToken.setAccess_token((String) exchangeBody.get("jti"));//访问令牌(jwt)
+        authToken.setJwt_token((String) exchangeBody.get("access_token")); //jti，作为用户的身份标识
+        authToken.setRefresh_token((String) exchangeBody.get("refresh_token")); //刷新列表
+
+        return authToken;
     }
 
     private String httpbasic(String clientId,String clientSecret){
@@ -89,5 +152,6 @@ public class TestClient {
         byte[] encode = Base64Utils.encode(string.getBytes());
         return "Basic "+new String(encode);
     }
+
 
 }
