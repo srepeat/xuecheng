@@ -11,6 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.LinkedMultiValueMap;
@@ -89,5 +90,27 @@ public class TestClient {
         byte[] encode = Base64Utils.encode(string.getBytes());
         return "Basic "+new String(encode);
     }
+
+
+    //测试BCryptPasswordEncoder
+    @Test
+    public void testPasswrodEncoder(){
+
+        //原生密码
+        String password = "123456";
+
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
+        for (int i=0;i<=5;i++){
+            String encode = bCryptPasswordEncoder.encode(password);
+            System.out.println(encode);
+
+            //验证密码
+            boolean matches = bCryptPasswordEncoder.matches(password, encode);
+            System.out.println(matches);
+        }
+    }
+
+
 
 }
