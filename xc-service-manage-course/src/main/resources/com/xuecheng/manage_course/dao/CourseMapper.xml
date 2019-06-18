@@ -10,11 +10,22 @@
    <select id="findCourseListPage" parameterType="com.xuecheng.framework.domain.course.request.CourseListRequest"
            resultType="com.xuecheng.framework.domain.course.ext.CourseInfo">
 
-   SELECT  c.*,(SELECT pic FROM course_pic WHERE courseid = c.id) pic FROM course_base c
+   SELECT
+   c.*,
+   (SELECT
+   pic
+   FROM course_pic
+   WHERE courseid = c.id)    pic
+   FROM course_base c
+   WHERE c.company_id = #{companyId}
 
    </select>
 
    <select id="findCourseList" resultType="com.xuecheng.framework.domain.course.CourseBase">
       select * from course_base
    </select>
+
+
+
+
 </mapper>

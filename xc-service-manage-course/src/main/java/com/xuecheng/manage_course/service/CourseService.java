@@ -177,11 +177,13 @@ public class CourseService {
 
 
     //课程分页查询
-    public QueryResponseResult findCourseList(int page, int size, CourseListRequest courseListRequest) {
+    public QueryResponseResult findCourseList(String companyId,int page, int size, CourseListRequest courseListRequest) {
         if(courseListRequest == null){
             //创建一个新的
             courseListRequest = new CourseListRequest();
         }
+        //企业Id传dao
+        courseListRequest.setCompanyId(companyId);
         //判断参数
         if(page <=0){
             page = 0;
