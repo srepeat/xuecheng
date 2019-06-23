@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c2a3b67-7ddb-47a7-a700-499a9c13fcc2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/AsyncTaskConfig.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/service/TaskService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/xc-service-manage-order/src/main/resources/logback-spring.xml" />
-    </list>
+    <list default="true" id="6c2a3b67-7ddb-47a7-a700-499a9c13fcc2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/xc-framework-parent/target/" />
     <ignored path="$PROJECT_DIR$/xc-framework-utils/target/" />
     <ignored path="$PROJECT_DIR$/xc-framework-model/target/" />
@@ -62,11 +56,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/service/TaskService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="1655">
+              <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,32 +69,20 @@
         </entry>
       </file>
       <file leaf-file-name="RabbitMQConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/config/RabbitMQConfig.java">
+        <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/config/RabbitMQConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="-378">
+              <caret line="19" column="81" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseCourseTask.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChooseCourseTask.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XcTaskRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="467">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,14 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/testfreemarker/src/main/resources/templates/course.ftl" />
-        <option value="$PROJECT_DIR$/xc-service-manage-course/pom.xml" />
-        <option value="$PROJECT_DIR$/xc-service-ucenter-auth/src/test/java/com/xuecheng/auth/TestRedis.java" />
-        <option value="$PROJECT_DIR$/xc-service-api/src/main/java/com/xuecheng/api/auth.java" />
-        <option value="$PROJECT_DIR$/xc-service-api/src/main/java/com/xuecheng/api/auth/auth.java" />
-        <option value="$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/ucenter/response/AuthCode.java" />
-        <option value="$PROJECT_DIR$/xc-service-ucenter-auth/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/xc-service-api/src/main/java/com/xuecheng/api/ucenter/UcenterControllerApi.java" />
         <option value="$PROJECT_DIR$/xc-service-ucenter/src/main/java/com/xuecheng/ucenter/dao/XcUserRepository.java" />
         <option value="$PROJECT_DIR$/xc-service-ucenter/src/main/java/com/xuecheng/ucenter/dao/XcCompanyUserRepository.java" />
         <option value="$PROJECT_DIR$/xc-service-ucenter/src/main/java/com/xuecheng/ucenter/controller/UcenterController.java" />
@@ -174,14 +148,22 @@
         <option value="$PROJECT_DIR$/xc-framework-common/src/main/java/com/xuecheng/framework/interceptor/FeignClientInterceptor.java" />
         <option value="$PROJECT_DIR$/xc-framework-common/src/main/java/com/xuecheng/framework/exception/ExceptionCatch.java" />
         <option value="$PROJECT_DIR$/xc-service-manage-course/src/main/java/com/xuecheng/manage_course/config/ResourceServerConfig.java" />
-        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/ManageOrderApplication.java" />
         <option value="$PROJECT_DIR$/xc-service-manage-order/pom.xml" />
         <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/AsyncTaskConfig.java" />
-        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java" />
-        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java" />
         <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/config/RabbitMQConfig.java" />
+        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/config/RabbitMQConfig.java" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/dao/XcLearningCourseRepository.java" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/dao/XcTaskHisRepository.java" />
+        <option value="$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/learning/response/LearningCode.java" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/service/LearningService.java" />
+        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskHisRepository.java" />
         <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/service/TaskService.java" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/mq/ChooseCourseTask.java" />
+        <option value="$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java" />
       </list>
     </option>
   </component>
@@ -249,6 +231,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,97 +240,12 @@
               <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
               <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="mq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xcEduSerrvice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xcEduSerrvice" type="462c0819:PsiDirectoryNode" />
-              <item name="xc-service-manage-order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,8 +254,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/xc-service-manage-order" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelWidth1" value="75" />
@@ -371,11 +270,11 @@
       <recent name="com.xuecheng.test.freemarker" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xuecheng.order.dao" />
+      <recent name="com.xuecheng.learning.config" />
       <recent name="com.xuecheng.manage_cms.conﬁg" />
       <recent name="com.xuecheng.govern.gateway.filter" />
       <recent name="com.xuecheng.auth" />
-      <recent name="com.xuecheng.framework.domain.learning.response" />
-      <recent name="com.xuecheng.manage_course.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\teach\xcEduSerrvice\xc-service-manage-order\src\main\resources" />
@@ -403,7 +302,7 @@
     </option>
     <option name="contentProportion" value="0.18291347" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ManageOrderApplication">
+  <component name="RunManager" selected="Spring Boot.order01">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -761,6 +660,22 @@
       <module name="xc-govern-center" />
       <envs />
     </configuration>
+    <configuration name="order01" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="xc_edu">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.order.ManageOrderApplication" />
+      <option name="VM_PARAMETERS" value="-DPORT=31500" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="xc-service-manage-order" />
+      <envs />
+    </configuration>
+    <configuration name="order02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="xc_edu">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xuecheng.order.ManageOrderApplication" />
+      <option name="VM_PARAMETERS" value="-DPORT=31501" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="xc-service-manage-order" />
+      <envs />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -794,33 +709,35 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="26">
+    <list size="28">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.eureka01" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.eureka02" />
       <item index="2" class="java.lang.String" itemvalue="Spring Boot.cms01" />
       <item index="3" class="java.lang.String" itemvalue="Spring Boot.cms02" />
-      <item index="4" class="java.lang.String" itemvalue="Spring Boot.ManageCmsApplication" />
-      <item index="5" class="java.lang.String" itemvalue="Spring Boot.ManageCmsApplication (1)" />
-      <item index="6" class="java.lang.String" itemvalue="Spring Boot.FreemarkerTestApplication" />
-      <item index="7" class="java.lang.String" itemvalue="Spring Boot.TestRabbitmqApplication (1)" />
-      <item index="8" class="java.lang.String" itemvalue="Spring Boot.ManageCmsClientApplication" />
-      <item index="9" class="java.lang.String" itemvalue="Spring Boot.ManageCourseApplication" />
-      <item index="10" class="java.lang.String" itemvalue="Spring Boot.TestRabbitmqApplication" />
-      <item index="11" class="java.lang.String" itemvalue="Spring Boot.FileSystemApplication" />
-      <item index="12" class="java.lang.String" itemvalue="Spring Boot.TestFastDfsApplication" />
-      <item index="13" class="java.lang.String" itemvalue="Spring Boot.SearchApplication" />
-      <item index="14" class="java.lang.String" itemvalue="Spring Boot.ManageMediaApplication" />
-      <item index="15" class="java.lang.String" itemvalue="Spring Boot.ManageMediaProcessorApplication" />
-      <item index="16" class="java.lang.String" itemvalue="Spring Boot.LearningApplication" />
-      <item index="17" class="java.lang.String" itemvalue="Spring Boot.UcenterAuthApplication" />
-      <item index="18" class="java.lang.String" itemvalue="Spring Boot.UcenterApplication" />
-      <item index="19" class="java.lang.String" itemvalue="Spring Boot.GatewayApplication" />
-      <item index="20" class="java.lang.String" itemvalue="Spring Boot.ManageOrderApplication" />
-      <item index="21" class="java.lang.String" itemvalue="JUnit.TestJwt.testVerify" />
-      <item index="22" class="java.lang.String" itemvalue="JUnit.TestClient.testPasswrodEncoder" />
-      <item index="23" class="java.lang.String" itemvalue="JUnit.TestMuen.test" />
-      <item index="24" class="java.lang.String" itemvalue="JUnit.TestMuen.test (1)" />
-      <item index="25" class="java.lang.String" itemvalue="JUnit.TestMuen.test (2)" />
+      <item index="4" class="java.lang.String" itemvalue="Spring Boot.order01" />
+      <item index="5" class="java.lang.String" itemvalue="Spring Boot.order02" />
+      <item index="6" class="java.lang.String" itemvalue="Spring Boot.ManageCmsApplication" />
+      <item index="7" class="java.lang.String" itemvalue="Spring Boot.ManageCmsApplication (1)" />
+      <item index="8" class="java.lang.String" itemvalue="Spring Boot.FreemarkerTestApplication" />
+      <item index="9" class="java.lang.String" itemvalue="Spring Boot.TestRabbitmqApplication (1)" />
+      <item index="10" class="java.lang.String" itemvalue="Spring Boot.ManageCmsClientApplication" />
+      <item index="11" class="java.lang.String" itemvalue="Spring Boot.ManageCourseApplication" />
+      <item index="12" class="java.lang.String" itemvalue="Spring Boot.TestRabbitmqApplication" />
+      <item index="13" class="java.lang.String" itemvalue="Spring Boot.FileSystemApplication" />
+      <item index="14" class="java.lang.String" itemvalue="Spring Boot.TestFastDfsApplication" />
+      <item index="15" class="java.lang.String" itemvalue="Spring Boot.SearchApplication" />
+      <item index="16" class="java.lang.String" itemvalue="Spring Boot.ManageMediaApplication" />
+      <item index="17" class="java.lang.String" itemvalue="Spring Boot.ManageMediaProcessorApplication" />
+      <item index="18" class="java.lang.String" itemvalue="Spring Boot.LearningApplication" />
+      <item index="19" class="java.lang.String" itemvalue="Spring Boot.UcenterAuthApplication" />
+      <item index="20" class="java.lang.String" itemvalue="Spring Boot.UcenterApplication" />
+      <item index="21" class="java.lang.String" itemvalue="Spring Boot.GatewayApplication" />
+      <item index="22" class="java.lang.String" itemvalue="Spring Boot.ManageOrderApplication" />
+      <item index="23" class="java.lang.String" itemvalue="JUnit.TestJwt.testVerify" />
+      <item index="24" class="java.lang.String" itemvalue="JUnit.TestClient.testPasswrodEncoder" />
+      <item index="25" class="java.lang.String" itemvalue="JUnit.TestMuen.test" />
+      <item index="26" class="java.lang.String" itemvalue="JUnit.TestMuen.test (1)" />
+      <item index="27" class="java.lang.String" itemvalue="JUnit.TestMuen.test (2)" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -927,8 +844,17 @@
       <workItem from="1560842232665" duration="13176000" />
       <workItem from="1560907643828" duration="7000000" />
       <workItem from="1561022414776" duration="1172000" />
-      <workItem from="1561079364431" duration="7085000" />
+      <workItem from="1561079364431" duration="7176000" />
+      <workItem from="1561258103115" duration="14540000" />
     </task>
+    <task id="LOCAL-00001" summary="事务控制课程添加完成">
+      <created>1561277783975</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561277783975</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -964,7 +890,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="548943000" />
+    <option name="totallyTimeSpent" value="563574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,7 +922,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4935065" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" x="28" y="305" width="1864" height="419" />
+      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.47225502" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" x="28" y="305" width="1864" height="419" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3459268" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821724" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1022,6 +948,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
+    <MESSAGE value="事务控制课程添加完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="事务控制课程添加完成" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -1032,7 +963,7 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="281" />
+      <option name="time" value="288" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1041,65 +972,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/ucenter/XcUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/ucenter/XcMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/resources/com.xuecheng/ucenter.dao/XcMenuMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/java/com/xuecheng/ucenter/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/java/com/xuecheng/ucenter/dao/XcMenuMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="13" column="48" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/resources/com.xuecheng.ucenter.dao/XcMenuMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/target/classes/com/xuecheng/ucenter/dao/XcMenuMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/main/resources/com/xuecheng/ucenter/dao/XcMenuMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-ucenter/src/test/java/com/xuecheng/ucenter/test/TestMuen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xc-service-ucenter-auth/src/test/java/com/xuecheng/auth/TestJwt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
@@ -1317,15 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5464">
           <caret line="51" column="32" lean-forward="true" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,50 +1208,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/ManageOrderApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/AsyncTaskConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1389#1390#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/config/RabbitMQConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1389#1390#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1397,7 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1405,14 +1231,143 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/config/RabbitMQConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/task/XcTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-cms/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/ManageOrderApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/dao/XcLearningCourseRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/dao/XcTaskHisRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-framework-model/src/main/java/com/xuecheng/framework/domain/learning/response/LearningCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/dao/XcTaskHisRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/service/LearningService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="111" column="14" lean-forward="false" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/mq/ChooseCourseTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1342">
+          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/service/TaskService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state relative-caret-position="1655">
+          <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/java/com/xuecheng/learning/config/RabbitMQConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="19" column="81" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-learning/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xc-service-manage-order/src/main/java/com/xuecheng/order/mq/ChooseCourseTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
