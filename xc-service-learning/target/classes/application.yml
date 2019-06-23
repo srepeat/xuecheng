@@ -25,6 +25,13 @@ spring:
     password: guest
     publisher-confirms: true
     virtual-host: /
+    publisher-returns: true
+    listener:
+      simple:
+        max-concurrency: 1
+      direct:
+        retry:
+          enabled: true
 eureka:
   client:
     registerWithEureka: true #服务注册开关

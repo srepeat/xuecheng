@@ -1,5 +1,5 @@
 server:
-  port: 31500
+  port: ${PORT:31500}
 spring:
   application:
     name: xc-service-manage-order

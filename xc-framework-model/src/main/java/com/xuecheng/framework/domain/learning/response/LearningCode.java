@@ -11,7 +11,9 @@ import lombok.ToString;
  */
 @ToString
 public enum LearningCode implements ResultCode {
-    LEARNING_GETMEDIA_ERROR(false,23000,"获取视频播放地址出错！");
+    LEARNING_GETMEDIA_ERROR(false,23000,"获取视频播放地址出错！"),
+    CHOOSECOURSE_USERISNULL(false,23001,"用户id等于null！"),
+    CHOOSECOURSE_TASKISNULL(false,23002,"任务为null");
 
     //操作代码
     boolean success;
